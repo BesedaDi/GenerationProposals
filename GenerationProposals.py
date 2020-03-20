@@ -22,3 +22,5 @@ def word():
     word = list(text1.split())
     print(word)
 word()
+
+
