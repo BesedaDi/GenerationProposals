@@ -20,6 +20,7 @@ def word():
 
     text1 = text = re.sub('[,.!?;]', '', text)
     word = list(text1.split())
+
 source_words = word()
 list_start = []
 for word in source_words:
