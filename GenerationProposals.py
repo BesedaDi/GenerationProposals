@@ -6,21 +6,19 @@
 
 """
 import random
+def word():
+    f = open('input.txt', 'r', encoding='utf8')
+    text = f.read()
+    text = text.replace('\n', ' ')
+    import re
+    text = re.sub('[@#$%^&*:]', '', text)
+    res = re.sub(r' ,', ', ', text)
+    res = res.replace(' .', '.')
+    res = res.replace(' ;', ';')
+    res = res.replace(' !', '!')
+    res = res.replace(' ?', '?')
 
-symbols = ['!','@','#','$','%']
-f = open('input.txt','r', encoding='utf8')
-text = f.read()
-for symbol in symbols:
-    if symbol in text:
-        text = text.replace(symbol,'')
-import string
-import re
-
-
-pat = "\text+([{}]+)".format(re.escape(string.punctuation))
-res = re.sub("\s{2,}", " ", re.sub(pat, r"\1", text))
-text = res.replace('\n', ' ')
-print(text)
-
-
-
+    text1 = text = re.sub('[,.!?;]', '', text)
+    word = list(text1.split())
+    print(word)
+word()
