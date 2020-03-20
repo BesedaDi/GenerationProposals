@@ -8,6 +8,7 @@
 import random
 import re
 
+
 def word():
     name = input('Введите имя файла, который хранит исходный текст:')
     rez = 'ERROR'
