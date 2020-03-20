@@ -6,7 +6,7 @@
 
 """
 import random
-
+import re
 
 def word():
     name = input('Введите имя файла, который хранит исходный текст:')
@@ -20,7 +20,6 @@ def word():
             print(u'Такого файла не существует. Повторите попытку.')
             rez = 'ERROR'
             name = input('Введите имя файла, который хранит исходный текст:')
-    import re
     text = text.replace('\n', ' ')
     text = re.sub('[@#$%^&*:]', '', text)
     res = re.sub(r' ,', ', ', text)
