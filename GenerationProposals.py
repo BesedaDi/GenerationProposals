@@ -7,10 +7,12 @@
 """
 import random
 
-name = input('Введите имя файла, который хранит исходный текст:')
 
 
-def word(name, rez='ERROR'):
+
+def word():
+    name = input('Введите имя файла, который хранит исходный текст:')
+    rez = 'ERROR'
     while rez == 'ERROR':
         try:
             file = open(name, 'r', encoding='utf8')
@@ -31,9 +33,9 @@ def word(name, rez='ERROR'):
 
     text1 = text = re.sub('[,.!?;]', '', text)
     word = list(text1.split())
+    return word
 
-
-source_words = word(name, rez='ERROR')
+source_words = word()
 list_start = []
 for word in source_words:
     if word.istitle():
