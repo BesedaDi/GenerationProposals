@@ -21,8 +21,6 @@ def word():
     text1 = text = re.sub('[,.!?;]', '', text)
     word = list(text1.split())
 source_words = word()
-
-print(source_words)
 list_start = []
 for word in source_words:
     if word.istitle():
@@ -30,7 +28,6 @@ for word in source_words:
 for i in list_start:
     if i[-1] == '.':
         list_start.remove(i)
-print(list_start)
 
 listLinks = []
 for word in source_words:
@@ -52,7 +49,6 @@ for word in source_words:
                 break
     listLinks.append(listMore)
 listLinks = listLinks[:-2]
-print(listLinks)
 
 n = int(input('Сколько предложений нужно сгенерировать из исходного текста? '))
 amount_startWords = len(list_start)
