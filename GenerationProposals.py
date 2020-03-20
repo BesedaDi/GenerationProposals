@@ -6,11 +6,22 @@
 
 """
 import random
-def word():
-    f = open('input.txt', 'r', encoding='utf8')
-    text = f.read()
-    text = text.replace('\n', ' ')
+
+name = input('Введите имя файла, который хранит исходный текст:')
+
+
+def word(name, rez='ERROR'):
+    while rez == 'ERROR':
+        try:
+            file = open(name, 'r', encoding='utf8')
+            text = file.read()
+            rez = 'OK'
+        except IOError as e:
+            print(u'Такого файла не существует. Повторите попытку.')
+            rez = 'ERROR'
+            name = input('Введите имя файла, который хранит исходный текст:')
     import re
+    text = text.replace('\n', ' ')
     text = re.sub('[@#$%^&*:]', '', text)
     res = re.sub(r' ,', ', ', text)
     res = res.replace(' .', '.')
@@ -21,8 +32,4 @@ def word():
     text1 = text = re.sub('[,.!?;]', '', text)
     word = list(text1.split())
     print(word)
-word()
-
-
-
-
+word(name, rez='ERROR')
